@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEXUS // Command Zone</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="scanlines"></div>
+    <div class="app-shell">
+        <main class="main-content">
+            <header class="header-card glass-card fade-in-up" style="animation-delay: 0.1s">
+                <div class="header-logo">
+                    <svg viewBox="0 0 100 100" width="40" height="40" class="futuristic-logo">
+                        <defs>
+                            <linearGradient id="emerald-glow" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#00ffb3" />
+                                <stop offset="100%" stop-color="#006644" />
+                            </linearGradient>
+                            <filter id="glow-effect">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="url(#emerald-glow)" stroke-width="2" filter="url(#glow-effect)" />
+                        <polygon points="50,15 80,32 80,68 50,85 20,68 20,32" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+                        <circle cx="50" cy="50" r="8" fill="url(#emerald-glow)" filter="url(#glow-effect)"/>
+                    </svg>
+                    <div class="brand-text">
+                        <h1>NEXUS COMMAND <span class="premium-badge">PRO</span></h1>
+                    </div>
+                </div>
+                <div class="status-chip">
+                    <div class="pulse"></div> 
+                    <span class="status-text">SYS_READY</span>
+                </div>
+            </header>
+
+            <section class="controls-card glass-card fade-in-up" style="animation-delay: 0.2s">
+                <button id="btn-select" class="cyber-btn cyber-btn-primary">
+                    <span class="btn-text">INITIALIZE FILES [ + ]</span>
+                    <span class="btn-glitch"></span>
+                </button>
+                <button id="btn-clear" class="cyber-btn cyber-btn-ghost">
+                    <span class="btn-text">PURGE QUEUE</span>
+                </button>
+                
+                <label class="cyber-checkbox-container">
+                    <input type="checkbox" id="backup-mode" checked>
+                    <span class="cyber-checkmark">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+                    </span>
+                    <span class="cyber-label-text">ENFORCE SAFE BACKUP</span>
+                </label>
+            </section>
+
+            <section class="list-card glass-card fade-in-up" style="animation-delay: 0.3s">
+                <div class="list-header">
+                    <div class="col-id">UID</div>
+                    <div class="col-path">TARGET DIRECTORY / PAYLOAD PATH</div>
+                    <div class="col-col">COLUMN</div>
+                    <div class="col-action">ACTIONS</div>
+                </div>
+                <div class="list-body" id="file-list">
+                    <!-- Populated via JS -->
+                </div>
+            </section>
+
+            <div class="bottom-split fade-in-up" style="animation-delay: 0.4s">
+                <section class="run-card glass-card">
+                    <button id="btn-run" class="cyber-btn-huge">
+                        <span class="btn-text">EXECUTE ALL FILES</span>
+                    </button>
+                </section>
+
+                <section class="log-card glass-card">
+                    <div class="log-terminal" id="terminal">
+                        <div class="log-sys">Initializing Nexus System OS v9.5...</div>
+                        <div class="log-sys">Establishing secure connection... <span class="emerald-text">SUCCESS</span></div>
+                        <div class="log-sys">Awaiting input...</div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+    
+    <script src="/static/app.js"></script>
+</body>
+</html>
